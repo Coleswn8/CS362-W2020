@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Oct 13 15:42:42 2015
+Created on Sun Jan 19 10:09 2020
 
-@author: tfleck
+@author: Cole Swanson
 """
 
 import Dominion
 import random
 from collections import defaultdict
 import testUtility
-
 #Get player names
 player_names = ["Annie","*Ben","*Carla"]
 
@@ -21,8 +20,13 @@ nC = -10 + 10 * len(player_names)
 box = testUtility.GetBoxes(nV)
 
 supply_order = testUtility.GetSupplyOrder()
-
-#Pick 10 cards from box to be in the supply.
+supply_order = {0: ['Curse', 'Copper'],
+                0: ['Estate', 'Cellar', 'Chapel', 'Moat'],
+                0: ['Silver', 'Chancellor', 'Village', 'Woodcutter', 'Workshop'],
+                0: ['Gardens', 'Bureaucrat', 'Feast', 'Militia', 'Moneylender', 'Remodel', 'Smithy', 'Spy', 'Thief',
+                        'Throne Room'],
+                0: ['Duchy', 'Market', 'Council Room', 'Festival', 'Laboratory', 'Library', 'Mine', 'Witch'],
+                0: ['Gold', 'Adventurer'], 8: ['Province']}
 
 supply = testUtility.GetSupply(box, nV, nC, player_names)
 

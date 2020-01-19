@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Oct 13 15:42:42 2015
+Created on Sun Jan 19 10:08 2020
 
-@author: tfleck
+@author: Cole Swanson
 """
 
 import Dominion
@@ -11,7 +11,7 @@ from collections import defaultdict
 import testUtility
 
 #Get player names
-player_names = ["Annie","*Ben","*Carla"]
+player_names = ["Annie"]
 
 #number of curses and victory cards
 nV = testUtility.GetVictNum(player_names)
@@ -22,9 +22,10 @@ box = testUtility.GetBoxes(nV)
 
 supply_order = testUtility.GetSupplyOrder()
 
-#Pick 10 cards from box to be in the supply.
-
 supply = testUtility.GetSupply(box, nV, nC, player_names)
+supply["Copper"] = [Dominion.Copper()] * (60 - len(player_names) * 7)
+supply["Silver"] = [Dominion.Copper()] * 40
+supply["Gold"] = [Dominion.Copper()] * 30
 
 #initialize the trash
 trash = []
